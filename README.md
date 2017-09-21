@@ -99,14 +99,14 @@ iLO Virtual Media Boot with Gen9 and Gen10
 
 As discussed in the previous section, not all HPE supported Tier 1 Operating
 Systems support UEFI HTTP Boot in order to install an Operating System. Using
-Virtual Media would be a more ubiquities capability, and supports are larger
+Virtual Media would be a more ubiquitous capability, and supports are larger
 range of operating systems, as the provided CD/DVD ISO image is directly mounted
 to the server.
 
 **Important**
 
 > Scripting iLO Virtual Media will require the iLO Advanced license. Any HPE
-> OneView Advanced customer wil have an iLO Advanced license installed on their
+> OneView Advanced customer will have an iLO Advanced license installed on their
 > iLO.
 
 Using iLO Virtual Media to provision an OS along with the HPE OneView Server
@@ -152,14 +152,14 @@ Attach to the iLO REST API (Gen8) or RedFish interface (Gen9 and newer), using t
 
 Once the iLO RedFish token has been created, the remote ISO needs to be mounted
 with iLO Virtual Media. The server/compute node should be instructed to boot
-from the mounted ISO image upon next boot, using the On Time Boot (OTB) method
+from the mounted ISO image upon next boot, using the One Time Boot (OTB) method
 provided by the iLO. The provided scripts will mount the ISO image using the
 provided relative URL, and then set the OTB value to “CD”.
 
 **Important**
 
 > Scripting iLO Virtual Media will require the iLO Advanced license. Any HPE
-> OneView Advanced customer wil have an iLO Advanced license installed on their
+> OneView Advanced customer will have an iLO Advanced license installed on their
 > iLO.
 
 Table 5. Mount remote iLO Virtual Media with RedFish resources
