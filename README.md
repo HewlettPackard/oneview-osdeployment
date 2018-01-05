@@ -1,16 +1,14 @@
 ![](media/b8b2b852581d4935bc7f1e05e4dbf7ba.jpg)
 
->   Infrastructure Automation with Operating System Deployment
+# Infrastructure Automation with Operating System Deployment
 
->   How To Guide for Gen9 and Gen10 UEFI HTTP Boot and iLO Virtual Media with the Composable API
+How To Guide for Gen9 and Gen10 UEFI HTTP Boot and iLO Virtual Media with the Composable API
 
-Introduction
-============
+## Introduction
 
-With Insight Control Server Provisioning (ICSP) ceasing to support Gen10 and newer, this whitepaper and accompanying GitHub repository, is meant to assist customers and partners with alternate methods for deploying supported operating systems.  This whitepaper is not meant to provide guidance on the exact steps on deploying an operating system, but rather on how to boot strap a server into an automation environment or scripted OS install.  There are two options, each with different implementations.  Each section describes the requirements, and process to booting a server into either a maintenance OS, or OS installation.
+With Insight Control Server Provisioning (ICSP) ceasing to support Gen10 and newer, [this whitepaper](Infrastructure%20Automation%20with%20Operating%20System%20Deployment.pdf) and accompanying GitHub repository, is meant to assist customers and partners with alternate methods for deploying supported operating systems.  This whitepaper is not meant to provide guidance on the exact steps on deploying an operating system, but rather on how to boot strap a server into an automation environment or scripted OS install.  There are two options, each with different implementations.  Each section describes the requirements, and process to booting a server into either a maintenance OS, or OS installation.
 
-UEFI HTTP Boot with Gen9 and Gen10
-==================================
+## UEFI HTTP Boot with Gen9 and Gen10
 
 UEFI HTTP Boot[^1] is a feature introduced into UEFI 2.5 spec that its goal is
 to help OS vendors and Enterprises to replace, or provide an alternative to, PXE
@@ -49,15 +47,15 @@ HTTP Boot.
 
 Table 2. Infrastructure requirements for UEFI HTTP Boot
 
-| Prerequisits             |                                                          |
+| Prerequisites            |                                                          |
 |--------------------------|----------------------------------------------------------|
 | Web Server               | HTTP or HTTPS, anonymous authentication                  |
 | HTTP/HTTPS Loadbalancing | Optional. Can help with HTTP/HTTPS connection balancing. |
 | IPv4 Addressing          | Static or DHCP                                           |
 | IPv6 Addressing          | Automatic (can utilize SLAAC or DHCPv6) or Static        |
 
-When definining a Server Profile it is important that for BL and SY enviornments
-with Virtual Connect, 1 or more Connections must be assigned that have access to
+When defining a Server Profile it is important that for BL and SY environments
+with Virtual Connect, one or more Connections must be assigned that have access to
 the web server hosting the ISO images.
 
 ![](media/9cf69cde0933d42f5fedd557b9c56121.png)
@@ -94,8 +92,7 @@ Figure 5. BL460 Gen9 booting RHEL 7 install ISO via UEFI HTTP Boot.
 
 Figure 6. BL460 Gen9 RHEL 7 installation menu.
 
-iLO Virtual Media Boot with Gen9 and Gen10
-==========================================
+## iLO Virtual Media Boot with Gen9 and Gen10
 
 As discussed in the previous section, not all HPE supported Tier 1 Operating
 Systems support UEFI HTTP Boot in order to install an Operating System. Using
@@ -115,8 +112,7 @@ of operation.
 
 `Create Server Profile` --> `Wait for Create Async Task` --> `Generate iLO SSO auth token` --> `Mount virtual media`
 
-Create your Server Profile. 
-----------------------------
+### Create your Server Profile
 
 Server Profiles can be created from a Server Profile Template, with compliance
 tracking, or new with unique parameters not associated with Server Profile
@@ -132,8 +128,7 @@ Table 3. Create Server Profile resources
 | Python     | [Server-profile.py](https://github.com/HewlettPackard/python-hpOneView/blob/master/examples/server_profiles.py)               |
 | Ruby       | [server_profile.rb](https://github.com/HewlettPackard/oneview-sdk-ruby/blob/master/examples/shared_samples/server_profile.rb) |
 
-Obtain an iLO Single-Sign On (SSO) auth token from the HPE OneView API
-----------------------------------------------------------------------
+### Obtain an iLO Single-Sign On (SSO) auth token from the HPE OneView API
 
 Next, an iLO SSO auth token needs to be created. The following resources provide
 methods to generating either an iLO RedFish session object, or the SSO auth
@@ -147,8 +142,7 @@ Table 4. Create iLO RedFish SSO token resources
 | Python     | get_ssosessionobject.py                                                                |
 | Ruby       | get_ssosessionobject.rb                                                                |
 
-Attach to the iLO REST API (Gen8) or RedFish interface (Gen9 and newer), using the token and set the iLO Virtual Media DVD mount path
--------------------------------------------------------------------------------------------------------------------------------------
+### Attach to the iLO REST API (Gen8) or RedFish interface (Gen9 and newer), using the token and set the iLO Virtual Media DVD mount path
 
 Once the iLO RedFish token has been created, the remote ISO needs to be mounted
 with iLO Virtual Media. The server/compute node should be instructed to boot
@@ -170,8 +164,7 @@ Table 5. Mount remote iLO Virtual Media with RedFish resources
 | Python     | mount_virtualmedia.py  |
 | Ruby       | mount_virtualmedia.rb  |
 
-Optional: Attach to the iLO REST API (Gen8) or RedFish interface (Gen9 and newer), using the token and unmount ISO
-------------------------------------------------------------------------------------------------------------------
+### Optional: Attach to the iLO REST API (Gen8) or RedFish interface (Gen9 and newer), using the token and unmount ISO
 
 In typical installations, mounted ISO images, or the DVD/CD drive is
 autoejected. For those times where a DVD/CD drive eject command cannot be
@@ -186,31 +179,27 @@ Table 6. Unmount iLO Virtual Media resources
 | Python     | unmount_virtualmedia.py  |
 | Ruby       | unmount_virtualmedia.rb  |
 
-### Resources, contacts, or additional links
+## Resources, contacts, or additional links
 
-Hewlett-Packard GitHub Organization  
+HPE GitHub Organization  
 [github.com/HewlettPackard](http://github.com/HewlettPackard)
 
-Hewlett-Packard HPE OneView Python SDK  
+HPE OneView Python SDK  
 [github.com/HewlettPackard/python-hpOneView](https://github.com/HewlettPackard/python-hpOneView)
 
-Hewlett-Packard RedFish Python SDK  
-github.com/HewlettPackard/python-ilorest-library
+HPE RedFish Python SDK  
+[github.com/HewlettPackard/python-ilorest-library](https://github.com/HewlettPackard/python-ilorest-library)
 
-Hewlett-Packard HPE OneView Ruby SDK  
+HPE OneView Ruby SDK  
 [github.com/HewlettPackard/oneview-sdk-ruby](https://github.com/HewlettPackard/oneview-sdk-ruby)
 
-Hewlett-Packard RedFish Ruby SDK  
+HPE RedFish Ruby SDK  
 [github.com/HewlettPackard/ilo-sdk-ruby](https://github.com/HewlettPackard/ilo-sdk-ruby)
 
-Hewlett-Packard HPE OneView PowerShell Library  
+HPE OneView PowerShell Library  
 [powershellgallery.com/packages/HPOneView.310](https://powershellgallery.com/packages/HPOneView.310)
 
-Hewlett-Packard RedFish PowerShell Library  
+HPE RedFish PowerShell Library  
 [powershellgallery.com/packages/HPRESTCmdlets](https://www.powershellgallery.com/packages/HPRESTCmdlets/)
 
-Learn more at
--------------
-
-hpe.com/info/oneview
---------------------
+Learn more at https://hpe.com/info/oneview
