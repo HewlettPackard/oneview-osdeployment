@@ -59,12 +59,14 @@ with Virtual Connect, one or more Connections must be assigned that have access 
 the web server hosting the ISO images.
 
 ![](media/9cf69cde0933d42f5fedd557b9c56121.png)
+
 Figure 1. Connections within Server Profile that provide L2 connectivity to web
 server.
 
 The System ROM Boot Mode (aka BIOS Boot Mode) must be set to UEFI.
 
 ![](media/ddef6c6ea41e8b33400019727e0d37ec.png)
+
 Figure 2. System ROM boot mode setting.
 
 Finally, UEFI Boot must be configured within the Server Profile BIOS Settings;
@@ -74,16 +76,20 @@ the DHCPv4 setting to Disabled in order to set a Static IPv4 Address, Subnet
 Mask, Default Gateway and/or DNS.
 
 ![](media/598c58dce84025f51eca13bdb2c6ee74.png)
+
 Figure 3. Pre-boot Network Settings for IPv4 Static Address assignment in Server
 Profile.
 
 ![](media/5c992ca4fa74b202846666e0221c345e.png)
+
 Figure 4. Pre-boot Network Settings for UEFI HTTP Boot URLs.
 
 ![](media/daffd5ac15b3207b28dd2ef570485a77.png)
+
 Figure 5. BL460 Gen9 booting RHEL 7 install ISO via UEFI HTTP Boot.
 
 ![](media/a228b83e4f7ed24286fb968c75fe6e07.png)
+
 Figure 6. BL460 Gen9 RHEL 7 installation menu.
 
 ## iLO Virtual Media Boot with Gen9 and Gen10
