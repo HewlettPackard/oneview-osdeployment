@@ -49,15 +49,15 @@ HTTP Boot.
 
 Table 2. Infrastructure requirements for UEFI HTTP Boot
 
-| Prerequisits             |                                                          |
+| Prerequisites            |                                                          |
 |--------------------------|----------------------------------------------------------|
 | Web Server               | HTTP or HTTPS, anonymous authentication                  |
 | HTTP/HTTPS Loadbalancing | Optional. Can help with HTTP/HTTPS connection balancing. |
 | IPv4 Addressing          | Static or DHCP                                           |
 | IPv6 Addressing          | Automatic (can utilize SLAAC or DHCPv6) or Static        |
 
-When definining a Server Profile it is important that for BL and SY enviornments
-with Virtual Connect, 1 or more Connections must be assigned that have access to
+When defining a Server Profile it is important that for BL and SY environments
+with Virtual Connect, one or more Connections must be assigned that have access to
 the web server hosting the ISO images.
 
 ![](media/9cf69cde0933d42f5fedd557b9c56121.png)
@@ -115,7 +115,7 @@ of operation.
 
 `Create Server Profile` --> `Wait for Create Async Task` --> `Generate iLO SSO auth token` --> `Mount virtual media`
 
-Create your Server Profile. 
+Create your Server Profile.
 ----------------------------
 
 Server Profiles can be created from a Server Profile Template, with compliance
@@ -188,29 +188,25 @@ Table 6. Unmount iLO Virtual Media resources
 
 ### Resources, contacts, or additional links
 
-Hewlett-Packard GitHub Organization  
+HPE GitHub Organization  
 [github.com/HewlettPackard](http://github.com/HewlettPackard)
 
-Hewlett-Packard HPE OneView Python SDK  
+HPE OneView Python SDK  
 [github.com/HewlettPackard/python-hpOneView](https://github.com/HewlettPackard/python-hpOneView)
 
-Hewlett-Packard RedFish Python SDK  
-github.com/HewlettPackard/python-ilorest-library
+HPE RedFish Python SDK  
+[github.com/HewlettPackard/python-ilorest-library](https://github.com/HewlettPackard/python-ilorest-library)
 
-Hewlett-Packard HPE OneView Ruby SDK  
+HPE OneView Ruby SDK  
 [github.com/HewlettPackard/oneview-sdk-ruby](https://github.com/HewlettPackard/oneview-sdk-ruby)
 
-Hewlett-Packard RedFish Ruby SDK  
+HPE RedFish Ruby SDK  
 [github.com/HewlettPackard/ilo-sdk-ruby](https://github.com/HewlettPackard/ilo-sdk-ruby)
 
-Hewlett-Packard HPE OneView PowerShell Library  
+HPE OneView PowerShell Library  
 [powershellgallery.com/packages/HPOneView.310](https://powershellgallery.com/packages/HPOneView.310)
 
-Hewlett-Packard RedFish PowerShell Library  
+HPE RedFish PowerShell Library  
 [powershellgallery.com/packages/HPRESTCmdlets](https://www.powershellgallery.com/packages/HPRESTCmdlets/)
 
-Learn more at
--------------
-
-hpe.com/info/oneview
---------------------
+Learn more at https://hpe.com/info/oneview
