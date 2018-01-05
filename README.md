@@ -7,7 +7,7 @@
 Introduction
 ============
 
-With Insight Control Server Provisioning (ICSP) ceasing to support Gen10 and newer, this whitepaper and accompanying GitHub repository, is meant to assist customers and partners with alternate methods for deploying supported operating systems.  This whitepaper is not meant to provide guidance on the exact steps on deploying an operating system, but rather on how to boot strap a server into an automation environment or scripted OS install.  There are two options, each with different implementations.  Each section describes the requirements, and process to booting a server into either a maintenance OS, or OS installation.
+With Insight Control Server Provisioning (ICSP) ceasing to support Gen10 and newer, [this whitepaper](Infrastructure%20Automation%20with%20Operating%20System%20Deployment.pdf) and accompanying GitHub repository, is meant to assist customers and partners with alternate methods for deploying supported operating systems.  This whitepaper is not meant to provide guidance on the exact steps on deploying an operating system, but rather on how to boot strap a server into an automation environment or scripted OS install.  There are two options, each with different implementations.  Each section describes the requirements, and process to booting a server into either a maintenance OS, or OS installation.
 
 UEFI HTTP Boot with Gen9 and Gen10
 ==================================
