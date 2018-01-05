@@ -1,16 +1,14 @@
 ![](media/b8b2b852581d4935bc7f1e05e4dbf7ba.jpg)
 
->   Infrastructure Automation with Operating System Deployment
+# Infrastructure Automation with Operating System Deployment
 
->   How To Guide for Gen9 and Gen10 UEFI HTTP Boot and iLO Virtual Media with the Composable API
+How To Guide for Gen9 and Gen10 UEFI HTTP Boot and iLO Virtual Media with the Composable API
 
-Introduction
-============
+## Introduction
 
 With Insight Control Server Provisioning (ICSP) ceasing to support Gen10 and newer, [this whitepaper](Infrastructure%20Automation%20with%20Operating%20System%20Deployment.pdf) and accompanying GitHub repository, is meant to assist customers and partners with alternate methods for deploying supported operating systems.  This whitepaper is not meant to provide guidance on the exact steps on deploying an operating system, but rather on how to boot strap a server into an automation environment or scripted OS install.  There are two options, each with different implementations.  Each section describes the requirements, and process to booting a server into either a maintenance OS, or OS installation.
 
-UEFI HTTP Boot with Gen9 and Gen10
-==================================
+## UEFI HTTP Boot with Gen9 and Gen10
 
 UEFI HTTP Boot[^1] is a feature introduced into UEFI 2.5 spec that its goal is
 to help OS vendors and Enterprises to replace, or provide an alternative to, PXE
@@ -61,14 +59,12 @@ with Virtual Connect, one or more Connections must be assigned that have access 
 the web server hosting the ISO images.
 
 ![](media/9cf69cde0933d42f5fedd557b9c56121.png)
-
 Figure 1. Connections within Server Profile that provide L2 connectivity to web
 server.
 
 The System ROM Boot Mode (aka BIOS Boot Mode) must be set to UEFI.
 
 ![](media/ddef6c6ea41e8b33400019727e0d37ec.png)
-
 Figure 2. System ROM boot mode setting.
 
 Finally, UEFI Boot must be configured within the Server Profile BIOS Settings;
@@ -78,24 +74,19 @@ the DHCPv4 setting to Disabled in order to set a Static IPv4 Address, Subnet
 Mask, Default Gateway and/or DNS.
 
 ![](media/598c58dce84025f51eca13bdb2c6ee74.png)
-
 Figure 3. Pre-boot Network Settings for IPv4 Static Address assignment in Server
 Profile.
 
 ![](media/5c992ca4fa74b202846666e0221c345e.png)
-
 Figure 4. Pre-boot Network Settings for UEFI HTTP Boot URLs.
 
 ![](media/daffd5ac15b3207b28dd2ef570485a77.png)
-
 Figure 5. BL460 Gen9 booting RHEL 7 install ISO via UEFI HTTP Boot.
 
 ![](media/a228b83e4f7ed24286fb968c75fe6e07.png)
-
 Figure 6. BL460 Gen9 RHEL 7 installation menu.
 
-iLO Virtual Media Boot with Gen9 and Gen10
-==========================================
+## iLO Virtual Media Boot with Gen9 and Gen10
 
 As discussed in the previous section, not all HPE supported Tier 1 Operating
 Systems support UEFI HTTP Boot in order to install an Operating System. Using
@@ -115,8 +106,7 @@ of operation.
 
 `Create Server Profile` --> `Wait for Create Async Task` --> `Generate iLO SSO auth token` --> `Mount virtual media`
 
-Create your Server Profile.
-----------------------------
+### Create your Server Profile
 
 Server Profiles can be created from a Server Profile Template, with compliance
 tracking, or new with unique parameters not associated with Server Profile
@@ -132,8 +122,7 @@ Table 3. Create Server Profile resources
 | Python     | [Server-profile.py](https://github.com/HewlettPackard/python-hpOneView/blob/master/examples/server_profiles.py)               |
 | Ruby       | [server_profile.rb](https://github.com/HewlettPackard/oneview-sdk-ruby/blob/master/examples/shared_samples/server_profile.rb) |
 
-Obtain an iLO Single-Sign On (SSO) auth token from the HPE OneView API
-----------------------------------------------------------------------
+### Obtain an iLO Single-Sign On (SSO) auth token from the HPE OneView API
 
 Next, an iLO SSO auth token needs to be created. The following resources provide
 methods to generating either an iLO RedFish session object, or the SSO auth
@@ -170,8 +159,7 @@ Table 5. Mount remote iLO Virtual Media with RedFish resources
 | Python     | mount_virtualmedia.py  |
 | Ruby       | mount_virtualmedia.rb  |
 
-Optional: Attach to the iLO REST API (Gen8) or RedFish interface (Gen9 and newer), using the token and unmount ISO
-------------------------------------------------------------------------------------------------------------------
+### Optional: Attach to the iLO REST API (Gen8) or RedFish interface (Gen9 and newer), using the token and unmount ISO
 
 In typical installations, mounted ISO images, or the DVD/CD drive is
 autoejected. For those times where a DVD/CD drive eject command cannot be
@@ -186,7 +174,7 @@ Table 6. Unmount iLO Virtual Media resources
 | Python     | unmount_virtualmedia.py  |
 | Ruby       | unmount_virtualmedia.rb  |
 
-### Resources, contacts, or additional links
+## Resources, contacts, or additional links
 
 HPE GitHub Organization  
 [github.com/HewlettPackard](http://github.com/HewlettPackard)
