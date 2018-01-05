@@ -142,8 +142,7 @@ Table 4. Create iLO RedFish SSO token resources
 | Python     | get_ssosessionobject.py                                                                |
 | Ruby       | get_ssosessionobject.rb                                                                |
 
-Attach to the iLO REST API (Gen8) or RedFish interface (Gen9 and newer), using the token and set the iLO Virtual Media DVD mount path
--------------------------------------------------------------------------------------------------------------------------------------
+### Attach to the iLO REST API (Gen8) or RedFish interface (Gen9 and newer), using the token and set the iLO Virtual Media DVD mount path
 
 Once the iLO RedFish token has been created, the remote ISO needs to be mounted
 with iLO Virtual Media. The server/compute node should be instructed to boot
